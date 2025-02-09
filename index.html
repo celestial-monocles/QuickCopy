@@ -29,6 +29,12 @@
             background-color: #f0f0f0;
             border-radius: 5px;
         }
+        .notification {
+            margin-top: 10px;
+            font-size: 16px;
+            color: green;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -39,14 +45,19 @@
         <div class="symbol" onclick="copyText('（待續）')">（待續）</div>
         <div class="symbol" onclick="copyText('● 范統的事後補述')">● 范統的事後補述</div>
         <div class="symbol" onclick="copyText('{#}')">{#}</div>
+        <div class="notification" id="notification">Copied to clipboard!</div>
     </div>
 
-   <!-- <script>
+    <script>
         function copyText(text) {
             navigator.clipboard.writeText(text).then(() => {
-                alert('Copied: ' + text);
+                const notification = document.getElementById("notification");
+                notification.style.display = "block";
+                setTimeout(() => {
+                    notification.style.display = "none";
+                }, 2000);
             });
         }
-    </script> --!>
+    </script>
 </body>
 </html>
